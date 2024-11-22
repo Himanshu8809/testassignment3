@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { Water } from 'three/examples/jsm/objects/Water.js';
+
 
 // Scene, Camera, Renderer
 const scene = new THREE.Scene();
@@ -23,7 +25,7 @@ scene.add(light);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
 scene.add(ambientLight);
 
-// Ground Plane
+
 const planeGeometry = new THREE.PlaneGeometry(100, 100);
 const planeMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 planeMaterial.side = THREE.DoubleSide;
@@ -32,13 +34,13 @@ plane.rotation.x = -Math.PI / 2;
 plane.receiveShadow = true;
 scene.add(plane);
 
-// Load GLTF Model
+
 const loader = new GLTFLoader();
 let model;
 let originalPosition;
 
 loader.load(
-  'https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf', // Replace with your model URL
+  'https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf', 
   (gltf) => {
     model = gltf.scene;
     model.traverse((child) => {
@@ -58,14 +60,14 @@ loader.load(
   }
 );
 
-// Orbit Controls
+
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Shadow Toggle
+
 document.getElementById('toggleShadows').addEventListener('click', () => {
   renderer.shadowMap.enabled = !renderer.shadowMap.enabled;
 
-    // Update shadow properties for lights and objects in the scene
+   
     model.traverse((child) => {
         if (child.isLight) {
           child.castShadow = renderer.shadowMap.enabled;
@@ -79,7 +81,7 @@ document.getElementById('toggleShadows').addEventListener('click', () => {
       plane.receiveShadow =  renderer.shadowMap.enabled;
 });
 
-// Color Customization
+
 document.getElementById('applyColor').addEventListener('click', () => {
   const color = document.getElementById('colorPicker').value;
   if (model) {
