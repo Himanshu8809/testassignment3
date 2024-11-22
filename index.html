@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js Assignment</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button, input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .colorlabel{
+        background-color: white;
+        text-align: center;
+        border-radius: 10px solid black;
+        padding: 2px;
+        
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <button id="toggleShadows">Toggle Shadows</button>
+    <label for="colorPicker" class="colorlabel" >Choose a color: <input type="color" id="colorPicker" value="#ff5733"></label>
+   
+    <button id="applyColor">Apply Color</button>
+    <button id="toggleGloss">Toggle Glossy Effect</button>
+    <button id="homePosition">Home Position</button>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
