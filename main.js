@@ -51,7 +51,7 @@ loader.load(
       }
     });
     model.position.set(0, 0.9, 0);
-    originalPosition = model.position.clone(); // Save home position
+    originalPosition = model.position.clone(); 
     scene.add(model);
   },
   undefined,
@@ -93,7 +93,7 @@ document.getElementById('applyColor').addEventListener('click', () => {
   }
 });
 
-// Toggle Glossy Effect
+
 document.getElementById('toggleGloss').addEventListener('click', () => {
   if (model) {
     model.traverse((child) => {
@@ -104,19 +104,19 @@ document.getElementById('toggleGloss').addEventListener('click', () => {
   }
 });
 
-// Return to Home Position
+
 document.getElementById('homePosition').addEventListener('click', () => {
   if (model) {
     model.position.copy(originalPosition);
     model.rotation.set(0, 0, 0);
 
     camera.position.set(0, 2, 5);
-    controls.target.copy(originalPosition); // Focus controls on the model's position
+    controls.target.copy(originalPosition); 
     controls.update(); 
   }
 });
 
-// Animate
+
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -125,7 +125,7 @@ function animate() {
 
 animate();
 
-// Handle Window Resize
+
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
